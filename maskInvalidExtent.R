@@ -4,8 +4,8 @@ library(dplyr)
 
 setwd("data/processed")
 
-berlin = read_sf("../../raw/exposure/Berlin_Landesgrenze.shp")
-openwater = read_sf("../../raw/exposure/osm_water_berlin.gpkg")
+berlin = read_sf("../raw/Berlin_Landesgrenze.shp")
+openwater = read_sf("../raw/osm_water_berlin.gpkg")
 filelist = list.files(pattern=".tif")
 filelist = filelist[!endsWith(filelist, ".aux.xml")]
 

@@ -19,5 +19,4 @@ translateToPCRaster("data/raw/osm_water_rasterized_binary.tif", "data/processed/
 translateToPCRaster("data/raw/hms_simulation_KOSTRA/10a_10m_maxDepth.tif", "data/processed/wdmax_10a.map")
 translateToPCRaster("data/raw/hms_simulation_KOSTRA/30a_10m_maxDepth.tif", "data/processed/wdmax_30a.map")
 translateToPCRaster("data/raw/hms_simulation_KOSTRA/50a_10m_maxDepth.tif", "data/processed/wdmax_50a.map")
-translateToPCRaster("data/raw/hms_simulation_KOSTRA/100a_10m_maxDepth.tif", "data/processed/wdmax_100a.map"
-#translateToPCRaster("data/processed/water_surface_elevation_at_wdmax_100a.tif", "data/processed/water_surface_elevation_at_wdmax_100a.map")
+translateToPCRaster("data/raw/hms_simulation_KOSTRA/100a_10m_maxDepth.tif", "data/processed/wdmax_100a.map")

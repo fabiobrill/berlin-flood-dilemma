@@ -67,5 +67,5 @@ for prefix in ("10a", "30a", "50a", "100a"):
         subdelineation_np = pcr2numpy(subdelineation, 0)
 
         postfix = str(int(th*100)) + "cm.tif"
-        writeRaster(hotspot_ids_np, "data/processed/" + prefix + "_hotspot_ids_"  + postfix, wd_file.GetGeoTransform(), wd_file.GetProjection())
+        writeRaster(hotspot_ids_np, "data/processed/" + prefix + "_hazardspot_ids_"  + postfix, wd_file.GetGeoTransform(), wd_file.GetProjection())
         writeRaster(subdelineation_np, "data/processed/" + prefix + "_subcatchments_" + postfix, wd_file.GetGeoTransform(), wd_file.GetProjection())

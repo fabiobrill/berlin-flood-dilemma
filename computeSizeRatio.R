@@ -24,14 +24,14 @@ getSumAboveSize = function(df){
 # ----------------------------------------------------------------------------------------------- #
 # merge size ratio for 30cm vs 60cm hotspots
 
-df10_30 = read.csv("10a_hotspot_size_ratio_30cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hotspots > 2)
-df10_60 = read.csv("10a_hotspot_size_ratio_60cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hotspots > 2)
-df30_30 = read.csv("30a_hotspot_size_ratio_30cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hotspots > 2)
-df30_60 = read.csv("30a_hotspot_size_ratio_60cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hotspots > 2)
-df50_30 = read.csv("50a_hotspot_size_ratio_30cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hotspots > 2)
-df50_60 = read.csv("50a_hotspot_size_ratio_60cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hotspots > 2)
-df100_30 = read.csv("100a_hotspot_size_ratio_30cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hotspots > 2)
-df100_60 = read.csv("100a_hotspot_size_ratio_60cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hotspots > 2)
+df10_30 = read.csv("10a_hazardspot_size_ratio_30cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hazardspots > 2)
+df10_60 = read.csv("10a_hazardspot_size_ratio_60cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hazardspots > 2)
+df30_30 = read.csv("30a_hazardspot_size_ratio_30cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hazardspots > 2)
+df30_60 = read.csv("30a_hazardspot_size_ratio_60cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hazardspots > 2)
+df50_30 = read.csv("50a_hazardspot_size_ratio_30cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hazardspots > 2)
+df50_60 = read.csv("50a_hazardspot_size_ratio_60cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hazardspots > 2)
+df100_30 = read.csv("100a_hazardspot_size_ratio_30cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hazardspots > 2)
+df100_60 = read.csv("100a_hazardspot_size_ratio_60cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hazardspots > 2)
 
 df10_30$rp = "10a"; df10_30$threshold = "30cm"
 df10_60$rp = "10a"; df10_60$threshold = "60cm"
@@ -49,7 +49,7 @@ merged = rbind.data.frame(
     df100_30, df100_60
 )
 
-write.csv(merged, "size_ratio_hotspots_catchments.csv", row.names=F)
+write.csv(merged, "size_ratio_hazardspots_catchments.csv", row.names=F)
 
 # ----------------------------------------------------------------------------------------------- #
 # merge cummulative sum above thresholds
@@ -70,4 +70,4 @@ sums_merged = rbind.data.frame(
     sums_100_30, sums_100_60
 )
 
-write.csv(sums_merged, "cummulative_sum_of_hotspots.csv", row.names=F)
+write.csv(sums_merged, "cummulative_sum_of_hazardspots.csv", row.names=F)
