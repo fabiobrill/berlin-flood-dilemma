@@ -1,0 +1,12 @@
+name: D:\gitscripts\berlin-flood-dilemma\.conda
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11.7
+  - pcraster=4.4.1
+  - gdal=3.8.3
+  - numpy=1.26.3
+  - pandas=2.2.2
+  - matplotlib=3.8.2
+prefix: D:\gitscripts\berlin-flood-dilemma\.conda
