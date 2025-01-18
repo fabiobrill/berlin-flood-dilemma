@@ -1,0 +1,4 @@
+/data/raw
+/data/processed/unused
+/data/processed/wd_merged.csv
+*.aux.xml
