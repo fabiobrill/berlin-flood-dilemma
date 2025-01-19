@@ -6,7 +6,7 @@ library(sf)
 x11()
 
 
-size_ratio = read.csv("data/processed/size_ratio_hazardspots_catchments.csv")
+size_ratio = read.csv("data/processed/size_ratio_hazardspots_subcatchments.csv")
 size_ratio$rp = factor(size_ratio$rp, levels=c("100a", "50a", "30a", "10a"))
 
 # density

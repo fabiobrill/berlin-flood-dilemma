@@ -4,25 +4,25 @@ library(dplyr)
 setwd("D:/gitscripts/berlin-flood-dilemma/data/processed")
 
 # ----------------------------------------------------------------------------------------------- #
-# function to compute the cummulative sum of hotspots with decreasing size
+# function to compute the cummulative sum of hazardspots with decreasing size
 
 getSumAboveSize = function(df){
     sum_above_threshold = vector("numeric")
-    sorted_hotspots = sort(df$freq_hs, decreasing = T)
+    sorted_hazardspots = sort(df$freq_hs, decreasing = T)
     for(threshold in 1:max(df$freq_hs)){
         #print(threshold)
-        sum_above_threshold[threshold] = sum(sorted_hotspots > threshold)
+        sum_above_threshold[threshold] = sum(sorted_hazardspots > threshold)
     }
     sumdf = data.frame(
         threshold=1:length(sum_above_threshold),
-        hotspots=sum_above_threshold,
+        hazardspots=sum_above_threshold,
         rp=factor(df$rp[1], levels=c("10a", "30a", "50a", "100a")),
         depth=df$threshold[1])
     return(sumdf)
 }
 
 # ----------------------------------------------------------------------------------------------- #
-# merge size ratio for 30cm vs 60cm hotspots
+# merge size ratio for 30cm vs 60cm hazardspots
 
 df10_30 = read.csv("10a_hazardspot_size_ratio_30cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hazardspots > 2)
 df10_60 = read.csv("10a_hazardspot_size_ratio_60cm_masked.csv") %>% filter(!id %in% c(NA, 0,3)) #%>% filter(hazardspots > 2)
@@ -49,7 +49,7 @@ merged = rbind.data.frame(
     df100_30, df100_60
 )
 
-write.csv(merged, "size_ratio_hazardspots_catchments.csv", row.names=F)
+write.csv(merged, "size_ratio_hazardspots_subcatchments.csv", row.names=F)
 
 # ----------------------------------------------------------------------------------------------- #
 # merge cummulative sum above thresholds

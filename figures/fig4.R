@@ -8,7 +8,7 @@ library(terra)
 library(sf)
 x11() # open new plotting window
 
-size_ratio = read.csv("data/processed/size_ratio_hazardspots_catchments.csv")
+size_ratio = read.csv("data/processed/size_ratio_hazardspots_subcatchments.csv")
 size_ratio$rp = factor(size_ratio$rp, levels=c("100a", "50a", "30a", "10a"))
 size_ratio$water_depth = factor(size_ratio$threshold, levels=c("30cm", "60cm"))
 size_ratio$area_hs = size_ratio$freq_hs * 100
