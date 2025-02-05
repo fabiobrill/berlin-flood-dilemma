@@ -16,48 +16,50 @@ ggplot(size_ratio) +
     #geom_density(aes(ratio, col=rp), size=1, adjust=2) + facet_wrap(~threshold)+
 #    xlim(0,0.5) +
     scale_fill_scico_d(palette = "managua") +
+    ylab("Density \n") +
     xlab("Size ratio of hazardous areas and their respective catchments") +
-    theme_bw()
+    theme_bw(base_size = 14) -> p3
 
 # count
-ggplot(size_ratio) +
-    #geom_histogram(aes(ratio, fill=rp), col="black", size=0.5) + facet_wrap(~threshold)+
-    geom_histogram(aes(ratio, fill=rp), col="black", size=0.5, binwidth = 0.01) + facet_wrap(~threshold)+
-    #geom_density(aes(ratio, col=rp), size=1, adjust=2) + facet_wrap(~threshold)+
-#    xlim(0,0.5) +
-    scale_fill_scico_d(palette = "managua") +
-    theme_bw()
+# ggplot(size_ratio) +
+#     #geom_histogram(aes(ratio, fill=rp), col="black", size=0.5) + facet_wrap(~threshold)+
+#     geom_histogram(aes(ratio, fill=rp), col="black", size=0.5, binwidth = 0.01) + facet_wrap(~threshold)+
+#     #geom_density(aes(ratio, col=rp), size=1, adjust=2) + facet_wrap(~threshold)+
+# #    xlim(0,0.5) +
+#     scale_fill_scico_d(palette = "managua") +
+#     theme_bw()
 
-# plot the distribution of connected inundation size
-ggplot(size_ratio) +
-    #geom_histogram(aes(ratio, fill=rp), col="black", size=0.5) + facet_wrap(~threshold)+
-    geom_density(aes(hazardspots, col=rp), size=1, adjust=2, size=1.2) + facet_wrap(~threshold)+
-    xlim(10,200) +
-    #scale_fill_manual(values=wes_palette("Chevalier1")) +
-    scale_color_scico_d(palette = "managua") +
-    theme_bw()
+# # plot the distribution of connected inundation size
+# ggplot(size_ratio) +
+#     #geom_histogram(aes(ratio, fill=rp), col="black", size=0.5) + facet_wrap(~threshold)+
+#     geom_density(aes(hazardspots, col=rp), size=1, adjust=2, size=1.2) + facet_wrap(~threshold)+
+#     xlim(10,200) +
+#     #scale_fill_manual(values=wes_palette("Chevalier1")) +
+#     scale_color_scico_d(palette = "managua") +
+#     theme_bw()
 
-# plot the distribution of subcatchment size
-ggplot(size_ratio) +
-    #geom_histogram(aes(ratio, fill=rp), col="black", size=0.5) + facet_wrap(~threshold)+
-    geom_rect(xmin=1000, xmax=2000, ymin=0, ymax=0.002, fill="green", alpha=0.3) +
-    geom_density(aes(subcatchments, col=rp), size=1, adjust=2, size=1.2) +
-    facet_wrap(~threshold) +
-    xlim(10,5000) +
-    geom_vline(xintercept=173.8, col="darkred") +
-    #scale_fill_manual(values=wes_palette("Chevalier1")) +
-    scale_color_scico_d(palette = "managua") +
-    theme_bw()
+# # plot the distribution of subcatchment size
+# ggplot(size_ratio) +
+#     #geom_histogram(aes(ratio, fill=rp), col="black", size=0.5) + facet_wrap(~threshold)+
+#     geom_rect(xmin=1000, xmax=2000, ymin=0, ymax=0.002, fill="green", alpha=0.3) +
+#     geom_density(aes(subcatchments, col=rp), size=1, adjust=2, size=1.2) +
+#     facet_wrap(~threshold) +
+#     xlim(10,5000) +
+#     geom_vline(xintercept=173.8, col="darkred") +
+#     #scale_fill_manual(values=wes_palette("Chevalier1")) +
+#     scale_color_scico_d(palette = "managua") +
+#     theme_bw()
 
-# plot the distribution of subcatchment size and hazardspots and blocks
-ggplot(size_ratio) +
-    #geom_histogram(aes(ratio, fill=rp), col="black", size=0.5) + facet_wrap(~threshold)+
-    geom_histogram(aes(subcatchments, fill=rp), size=1, adjust=2, size=1.2) +
-    geom_histogram(aes(hazardspots, col=rp), size=1, adjust=2, size=1.2) +
-    facet_wrap(~threshold) +
-    xlim(10,5000) +
-    geom_vline(xintercept=173.8, col="darkred") +
-    #scale_fill_manual(values=wes_palette("Chevalier1")) +
-    scale_fill_scico_d(palette = "managua") +
-    theme_bw()
+# # plot the distribution of subcatchment size and hazardspots and blocks
+# ggplot(size_ratio) +
+#     #geom_histogram(aes(ratio, fill=rp), col="black", size=0.5) + facet_wrap(~threshold)+
+#     geom_histogram(aes(subcatchments, fill=rp), size=1, adjust=2, size=1.2) +
+#     geom_histogram(aes(hazardspots, col=rp), size=1, adjust=2, size=1.2) +
+#     facet_wrap(~threshold) +
+#     xlim(10,5000) +
+#     geom_vline(xintercept=173.8, col="darkred") +
+#     #scale_fill_manual(values=wes_palette("Chevalier1")) +
+#     scale_fill_scico_d(palette = "managua") +
+#     theme_bw()
+
 

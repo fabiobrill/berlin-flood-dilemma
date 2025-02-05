@@ -19,12 +19,10 @@ ggplot(cummulative) +
     #scale_x_log10() +
     scale_y_log10() +
     #facet_wrap(~rp) +
-    theme_bw(base_size = 12) +
+    theme_bw(base_size = 14) +
     scale_color_scico_d(palette = "managua", direction= 1) +
     #xlab("Size of hazardous area [number of connected cells | 100 m²]") +
     xlab("Size of hazardous area [m²]") +
-    ylab("Cummulative count of hazardous areas [log scale]") +
+    ylab("Cummulative count of \n hazardous areas [log scale]") +
     #xlim(500,4)
-    xlim(2, 110000)
-    #xlim(2, 50000)
-    #xlim(2, 1100)
+    xlim(2, 110000) -> p2

@@ -31,20 +31,20 @@ def writeRaster(data, outname, srs, proj, dtype=gdal.GDT_UInt16):
 
 
 # set the DEM as "clone" and read the file in PCRaster format
-pcraster.setclone("data/processed/dem_10m.map")
-dem = pcraster.readmap("data/processed/dem_10m.map")
-permanent_water_file = gdal.Open("data/raw/osm_water_rasterized_binary.tif")
+pcraster.setclone("../data/processed/dem_10m.map")
+dem = pcraster.readmap("../data/processed/dem_10m.map")
+permanent_water_file = gdal.Open("../data/raw/osm_water_rasterized_binary.tif")
 permanent_water = permanent_water_file.GetRasterBand(1).ReadAsArray()
 
 # compute the flow direction (D8)
 #flowdir = lddcreate(dem, 1e31, 1e31, 1e31, 1e31)
-#pcraster.report(flowdir, "data/processed/flowdir.map")
-flowdir = readmap("data/processed/flowdir.map")
+#pcraster.report(flowdir, "../data/processed/flowdir.map")
+flowdir = readmap("../data/processed/flowdir.map")
 
 # read the water depth from .tif as numpy array and
 # derive inundation hotspots from (multiple) threshold(s)
 for prefix in ("10a", "30a", "50a", "100a"):
-    wd_file = gdal.Open("data/raw/hms_simulation_KOSTRA/" + prefix + "_10m_maxDepth.tif")
+    wd_file = gdal.Open("../data/raw/hms_simulation_KOSTRA/" + prefix + "_10m_maxDepth.tif")
     wd = wd_file.GetRasterBand(1).ReadAsArray()
     for i in range(1, 16):
         th = i/10
@@ -66,5 +66,5 @@ for prefix in ("10a", "30a", "50a", "100a"):
         subdelineation_np = pcr2numpy(subdelineation, 0)
 
         postfix = str(int(th*100)) + "cm.tif"
-        writeRaster(hazardspot_ids_np, "data/processed/" + prefix + "_hazardspot_ids_"  + postfix, wd_file.GetGeoTransform(), wd_file.GetProjection())
-        writeRaster(subdelineation_np, "data/processed/" + prefix + "_subcatchments_" + postfix, wd_file.GetGeoTransform(), wd_file.GetProjection())
+        writeRaster(hazardspot_ids_np, "../data/processed/" + prefix + "_hazardspot_ids_"  + postfix, wd_file.GetGeoTransform(), wd_file.GetProjection())
+        writeRaster(subdelineation_np, "../data/processed/" + prefix + "_subcatchments_" + postfix, wd_file.GetGeoTransform(), wd_file.GetProjection())

@@ -1,7 +1,7 @@
 library(dplyr)
 
 
-setwd("D:/gitscripts/berlin-flood-dilemma/data/processed")
+setwd("data/processed")
 
 # ----------------------------------------------------------------------------------------------- #
 # function to compute the cummulative sum of hazardspots with decreasing size

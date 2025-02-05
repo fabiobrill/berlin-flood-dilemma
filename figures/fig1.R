@@ -46,8 +46,8 @@ sumdf = df %>%
 
 ggplot(sumdf %>% filter(wdcat != "< 10 cm")) +
     geom_col(aes(x=wdcat, y=ncells/10000, fill=rp), size=1.2, position="dodge") +
-    theme_bw(base_size=15) +
+    theme_bw(base_size=14) +
     #xlim(20,200) +
-    ylab("Area [km²]") +
+    ylab("Area [km²] \n") +
     xlab("Water depth") +
-    scale_fill_scico_d(palette="managua")
+    scale_fill_scico_d(palette="managua") -> p1
