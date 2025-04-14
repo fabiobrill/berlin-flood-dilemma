@@ -7,10 +7,17 @@ x11()
 
 
 df = read.csv("data/processed/wd_merged.csv")
-df$rp = factor(df$rp, levels=c(100, 50, 30, 10))
+#df$rp = factor(df$rp, levels=c(100, 50, 30, 10))
+df$RP = case_when(
+    df$rp == 10 ~ "10a",
+    df$rp == 30 ~ "30a",
+    df$rp == 50 ~ "50a",
+    df$rp == 100 ~ "100a"
+)
+df$RP = factor(df$RP, levels=c("100a", "50a", "30a", "10a"))
 
 head(df)
-unique(df$rp)
+unique(df$RP)
 
 df = na.omit(df)
 
@@ -41,11 +48,11 @@ df$wdcat = factor(df$wdcat, levels = c(
 ))
 
 sumdf = df %>% 
-    group_by(rp, wdcat) %>%
+    group_by(RP, wdcat) %>%
     summarize(ncells = length(wdcat))
 
 ggplot(sumdf %>% filter(wdcat != "< 10 cm")) +
-    geom_col(aes(x=wdcat, y=ncells/10000, fill=rp), size=1.2, position="dodge") +
+    geom_col(aes(x=wdcat, y=ncells/10000, fill=RP), size=1.2, position="dodge") +
     theme_bw(base_size=14) +
     #xlim(20,200) +
     ylab("Area [km²] \n") +
