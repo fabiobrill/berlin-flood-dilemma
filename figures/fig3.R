@@ -11,8 +11,9 @@ size_ratio$RP = factor(size_ratio$rp, levels=c("100a", "50a", "30a", "10a"))
 
 # density
 ggplot(size_ratio) +
-    geom_histogram(aes(ratio, y=stat(density), fill=RP), col="black", size=0.5, binwidth = 0.025) + facet_wrap(~threshold)+
+    geom_density(aes(ratio, col=RP), size=1.05, adjust=5) + facet_wrap(~threshold) +
     scale_fill_scico_d(palette = "managua") +
-    ylab("Density \n") +
-    xlab("Size ratio of hazardous areas and their respective catchments") +
+    scale_color_scico_d(palette = "managua") +
+    ylab("Kernel density estimate \n") +
+    xlab("Size ratio: hazardous areas divided by their respective subcatchment areas") +
     theme_bw(base_size = 14) -> p3
